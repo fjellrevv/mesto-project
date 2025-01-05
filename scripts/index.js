@@ -18,6 +18,14 @@ const imagePopup = document.querySelector('.popup_type_image');
 const imageElement = imagePopup.querySelector('.popup__image');
 const imageCaption = imagePopup.querySelector('.popup__caption');
 
+function openModal(popup) {      
+    popup.classList.add('popup_is-opened');
+} 
+
+function closeModal(popup) {      
+    popup.classList.remove('popup_is-opened');
+} 
+
 function createCard(cardName, cardLink) {
     const cardTemplate = document.querySelector('#card-template').content;
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
@@ -46,14 +54,6 @@ function createCard(cardName, cardLink) {
     return cardElement;
 }
 
-function openModal(popup) {      
-    popup.classList.add('popup_is-opened');
-} 
-
-function closeModal(popup) {      
-    popup.classList.remove('popup_is-opened');
-} 
-
 document.querySelector('.profile__edit-button').addEventListener('click', () => {
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
@@ -68,6 +68,7 @@ function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
+    closeModal(profilePopup);
 }
 profileFormElement.addEventListener('submit', handleProfileFormSubmit); 
 
