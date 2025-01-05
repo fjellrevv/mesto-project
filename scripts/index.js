@@ -35,6 +35,7 @@ function createCard(cardName, cardLink) {
     const cardTitle = cardElement.querySelector('.card__title');
     cardTitle.textContent = cardName;
     cardImage.src = cardLink;
+    cardImage.alt = cardName;
 
     cardLikeButton.addEventListener('click', () => {
         cardLikeButton.classList.toggle('card__like-button_is-active');
