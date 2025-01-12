@@ -1,0 +1,6 @@
+.popup__input-error {
+    color: #FF0000;
+    font-size: 12px;
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.2em;
+}
