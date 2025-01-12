@@ -1,11 +1,35 @@
 {
-  "name": "ya_project",
+  "name": "mesto_project",
   "version": "0.0.1",
-  "description": "",
+  "description": "студент, когорта, стэк",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
   },
   "author": "Zlata Zhilinko",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fjellrevv/mesto-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fjellrevv/mesto-project/issues"
+  },
+  "homepage": "https://github.com/fjellrevv/mesto-project#readme",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "core-js": "^3.40.0"
+  }
 }
