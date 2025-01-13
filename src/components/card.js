@@ -1,5 +1,3 @@
-import { initialCards } from '../cards.js';
-
 function createCard(cardName, cardLink) {
     const cardTemplate = document.querySelector('#card-template').content;
     const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
