@@ -18,6 +18,7 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
         const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
         inputList.forEach((inputElement) => {
             hideInputError(formElement, inputElement, settings);
+            inputElement.value = '';
         });
     });
 };
