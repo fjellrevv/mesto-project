@@ -12,6 +12,7 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
     errorElement.textContent = '';
   };
 
+  // функция обходит список всех форм попапа на случай расширения функциональности
   const hidePopupInputErrors = (popupElement, settings) => {
     const formList = Array.from(popupElement.querySelectorAll(settings.formSelector));
     formList.forEach((formElement) => {
@@ -32,9 +33,14 @@ const isValid = (formElement, inputElement, settings) => {
   };
 
 const hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
-      return !inputElement.validity.valid;
-    })
+    if (Array.isArray(inputList)) {
+      return inputList.some((inputElement) => {
+        return !inputElement.validity.valid;
+      })
+    }
+    else {
+      return !inputList.validity.valid;
+    }
 };
 
 const toggleButtonState = (inputList, buttonElement, settings) => {
