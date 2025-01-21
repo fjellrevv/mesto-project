@@ -11,14 +11,12 @@ const getInitialCards = () => {
       method: 'GET',
       headers: config.headers
     })
-      .then(res => {
-        if (res.ok) {
+    .then(res => {
+      if (res.ok) {
           return res.json();
-        }})
-      .catch((err) => {
-        console.log(err); 
-       });  
-       return Promise.reject(`Ошибка: ${res.status}`);
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
   } 
 
 const getUserInfo = () => {
@@ -26,14 +24,12 @@ const getUserInfo = () => {
         method: 'GET',
         headers: config.headers
     })
-      .then(res => {
-        if (res.ok) {
+    .then(res => {
+      if (res.ok) {
           return res.json();
-        }})
-      .catch((err) => {
-        console.log(err); 
-       });
-       return Promise.reject(`Ошибка: ${res.status}`);
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
   } 
 
   const updateUserImage = (userImage) => {
@@ -44,14 +40,12 @@ const getUserInfo = () => {
           avatar: userImage
         })
     })
-      .then(res => {
-        if (res.ok) {
+    .then(res => {
+      if (res.ok) {
           return res.json();
-        }})
-      .catch((err) => {
-        console.log(err); 
-       });
-       return Promise.reject(`Ошибка: ${res.status}`);
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
   } 
 
   const updateUserInfo = (userName, userAbout) => {
@@ -64,13 +58,11 @@ const getUserInfo = () => {
         })
     })
     .then(res => {
-        if (res.ok) {
+      if (res.ok) {
           return res.json();
-        }})
-      .catch((err) => {
-        console.log(err); 
-       }); 
-       return Promise.reject(`Ошибка: ${res.status}`);
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
   } 
 
   const addNewCard = (cardName, cardUrl) => {
@@ -83,13 +75,11 @@ const getUserInfo = () => {
         })
     })
     .then(res => {
-        if (res.ok) {
+      if (res.ok) {
           return res.json();
-        }})
-      .catch((err) => {
-        console.log(err); 
-       }); 
-       return Promise.reject(`Ошибка: ${res.status}`);
+      }
+      return Promise.reject(`Ошибка: ${res.status}`);
+    })
   } 
 
   const deleteCard = (cardID) => {
@@ -101,10 +91,9 @@ const getUserInfo = () => {
         if (res.ok) {
           return res;
         }})
-      .catch((err) => {
-        console.log(err); 
-       }); 
-       return Promise.reject(`Ошибка: ${res.status}`);
+    .catch(err => {
+      console.log(err); 
+    }); 
   } 
 
   const putLike = (cardID) => {
@@ -113,13 +102,11 @@ const getUserInfo = () => {
         headers: config.headers,
     })
     .then(res => {
-        if (res.ok) {
+      if (res.ok) {
           return res.json();
-        }})
-    .catch((err) => {
-      console.log(err); 
-      }); 
+      }
       return Promise.reject(`Ошибка: ${res.status}`);
+    })
   } 
 
   const deleteLike = (cardID) => {
@@ -128,13 +115,11 @@ const getUserInfo = () => {
         headers: config.headers,
     })
     .then(res => {
-        if (res.ok) {
+      if (res.ok) {
           return res.json();
-        }})
-    .catch((err) => {
-      console.log(err); 
-      }); 
+      }
       return Promise.reject(`Ошибка: ${res.status}`);
+    })
   } 
 
   export { config, getInitialCards, getUserInfo, updateUserInfo, addNewCard, deleteCard, putLike, deleteLike, updateUserImage };

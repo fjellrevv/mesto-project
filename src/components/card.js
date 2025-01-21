@@ -17,6 +17,9 @@ function createCard(cardName, cardLink, cardLikeNumber = 0, ownerID, userID, car
             .then(data => {
                 cardLikeButton.classList.remove('card__like-button_is-active');
                 cardLikeCount.textContent = data.likes.length;
+            })
+            .catch(err => {
+                console.log(err); 
             });
         }
         else {
@@ -25,6 +28,9 @@ function createCard(cardName, cardLink, cardLikeNumber = 0, ownerID, userID, car
             .then(data => {
                 cardLikeButton.classList.add('card__like-button_is-active');
                 cardLikeCount.textContent = data.likes.length;
+            })
+            .catch(err => {
+                console.log(err); 
             });
         };
 
@@ -35,9 +41,11 @@ function createCard(cardName, cardLink, cardLikeNumber = 0, ownerID, userID, car
     else {
         cardDeleteButton.addEventListener('click', () => {
             const cardDeleteElement = cardDeleteButton.closest('.places__item');
-            cardDeleteElement.remove();
-            deleteCard(cardID);   
-    });
+            deleteCard(cardID)
+            .then(() => {
+                cardDeleteElement.remove();    
+            });  
+        });
     }
     return cardElement;
 }
