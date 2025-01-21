@@ -111,6 +111,7 @@ function handleProfileImageFormSubmit(evt) {
     .then(() => {
         closeModal(profileImagePopup);
         document.removeEventListener('keydown', closeByEsc); 
+        hidePopupInputErrors(profileImagePopup, validationSettings);
         resetButtonState(profileImagePopup.querySelector('.popup__button'), false);
     })
     .catch(err => {
