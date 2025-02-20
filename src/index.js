@@ -134,7 +134,7 @@ document.querySelector('.profile__edit-button').addEventListener('click', () => 
 });
 
 popupList.forEach(popupItem => {
-    popupItem.addEventListener('click', function (evt) {
+    popupItem.addEventListener('mousedown', function (evt) {
         if (evt.target.classList.contains('popup')) {
             closeModal(popupItem);
             document.removeEventListener('keydown', closeByEsc); 
@@ -146,6 +146,7 @@ popupList.forEach(popupItem => {
 profilePopup.querySelector('.popup__close').addEventListener('click', () => {
     closeModal(profilePopup);
     document.removeEventListener('keydown', closeByEsc); 
+    hidePopupInputErrors(profilePopup, validationSettings);
 });
 
 function handleProfileFormSubmit(evt) {

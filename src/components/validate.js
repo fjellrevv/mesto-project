@@ -24,8 +24,15 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
     });
 };
 
+const isValidURL = url => {
+  const urlRegex = new RegExp(
+  /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6}\.?)(\/[\w.-]*)*\/?$/i
+);
+return urlRegex.test(url);
+}
+
 const isValid = (formElement, inputElement, settings) => {
-    if (!inputElement.validity.valid) {
+    if (!inputElement.validity.valid || (inputElement.type === "url" && !isValidURL(inputElement.value))) {
       showInputError(formElement, inputElement, inputElement.validationMessage, settings);
     } else {
       hideInputError(formElement, inputElement, settings);
@@ -35,10 +42,11 @@ const isValid = (formElement, inputElement, settings) => {
 const hasInvalidInput = (inputList) => {
     if (Array.isArray(inputList)) {
       return inputList.some((inputElement) => {
-        return !inputElement.validity.valid;
+        return (!inputElement.validity.valid || ((inputElement.type === "url") && !isValidURL(inputElement.value)));
       })
     }
     else {
+      if (inputElement.type === "url") return !isValidURL(inputElement.value);
       return !inputList.validity.valid;
     }
 };
@@ -72,4 +80,4 @@ const enableValidation = (settings) => {
     });
   };
 
-  export { showInputError, hideInputError, hidePopupInputErrors, isValid, hasInvalidInput, toggleButtonState, setEventListeners, enableValidation };
+  export { isValidURL, showInputError, hideInputError, hidePopupInputErrors, isValid, hasInvalidInput, toggleButtonState, setEventListeners, enableValidation };
